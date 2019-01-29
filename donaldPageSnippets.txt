@@ -1,39 +1,37 @@
 menu bar base layout:
 
     <aside class="menu">
-  <p class="menu-label">
-    General
-  </p>
-  <ul class="menu-list">
-    <li><a>Dashboard</a></li>
-    <li><a>Customers</a></li>
-  </ul>
-  <p class="menu-label">
-    Administration
-  </p>
-  <ul class="menu-list">
-    <li><a>Team Settings</a></li>
-    <li>
-      <a class="is-active">Manage Your Team</a>
-      <ul>
-        <li><a>Members</a></li>
-        <li><a>Plugins</a></li>
-        <li><a>Add a member</a></li>
-      </ul>
-    </li>
-    <li><a>Invitations</a></li>
-    <li><a>Cloud Storage Environment Settings</a></li>
-    <li><a>Authentication</a></li>
-  </ul>
-  <p class="menu-label">
-    Transactions
-  </p>
-  <ul class="menu-list">
-    <li><a>Payments</a></li>
-    <li><a>Transfers</a></li>
-    <li><a>Balance</a></li>
-  </ul>
-</aside>
+            <p class="menu-label">
+              Social Scope
+            </p>
+            <ul class="menu-list">              
+              <li><a>Your Weather</a></li>
+              <li><a>Your News</a></li>
+              <li><a>Local Events</a></li>
+              <li><a>Facebook</a></li>
+              <li><a>Twitter</a></li>
+              <li><a>Reddit</a></li>
+              <li><a>Select All</a></li>
+              <li><a>Select None</a></li>
+            </ul>
+            <p class="menu-label">
+              Administration
+            </p>
+            <ul class="menu-list">
+              <li><a>User Settings</a></li>
+              <li>
+                <a class="is-active">Snappy Widgets</a>
+                <ul>
+                  <li><a>Social Networks</a></li>
+                  <li><a>News Publications</a></li>
+                  <li><a>Popular Additions</a></li>
+                </ul>
+              </li>
+              <li><a>Friends</a></li>
+              <li><a>Dashboard Settings</a></li>
+              <li><a>Your Linked Accounts</a></li>
+            </ul>
+          </aside>
 
 Nav Bar Base layout
 
