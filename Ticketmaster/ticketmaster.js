@@ -3,7 +3,7 @@ var ticketmasterKey = "jjDMAaUGG3IIUAXBGRIisAAaWHqb6GpW";
 var defaultCity = "Houston";
 var newCity = []; // We will need an input form for the user to put a different city
 var ticketmasterURL =
-"https://app.ticketmaster.com/discovery/v2/events.json?" + "&city=" + defaultCity + "&localStartDateTime&countryCode=US&source=Ticketmaster&page=0&size=4&apikey=" + ticketmasterKey;
+"https://app.ticketmaster.com/discovery/v2/events.json?" + "&city=" + defaultCity + "&sort=date,asc&source=Ticketmaster&localStartDateTime=2019-02-02T00:00:00&countryCode=US&size=4&apikey=" + ticketmasterKey;
 
 
 // AJAX call to get intial information needed
@@ -14,7 +14,7 @@ $.ajax({
 
 // Retrieving the data
 .then(function(response){
-    // console.log(ticketmasterURL);
+    console.log(ticketmasterURL);
     console.log(response); // log the response
 
     var events = (response._embedded.events);
@@ -29,16 +29,31 @@ $.ajax({
         var eDate = moment(events[i].dates.start.localDate, "YYYY-MM-DD").format("MMMM D, YYYY - dddd");
         var eTime = moment(events[i].dates.start.localTime, "HH:mm:ss").format("h:mm A");
         var eVenue = (events[i]._embedded.venues[0].name);
+        var eDetail = (events[i].info);
         var eImg = $("<img src=" + events[i].images[1].url + ">");
 
+        
         var p = $("<p>");
-        p.append(eName + "<BR>Dates: " + eDate + "<BR>Venue: " + eVenue + "<BR>Time: " + eTime + "<BR>");
+        p.append(eName + "<BR>Dates: " + eDate + "<BR>Venue: " + eVenue + "<BR>Time: " + eTime + "<BR><BR>Details: " + eDetail + "<BR>");
         p.append($("<a>").attr("href", eLink).attr("target", "_blank").text("Get Tickets"));
-
+        
+        
         eventDiv.append(eImg);
         eventDiv.append(p);
 
+        if (eDetail == null || eDetail == undefined) {
+            eventDiv.empty();
+            var newP = $("<p>");
+
+            newP.append(eName + "<BR>Dates: " + eDate + "<BR>Venue: " + eVenue + "<BR>Time: " + eTime + "<BR><BR>**No details provided for this event." + "<BR>");
+            newP.append($("<a>").attr("href", eLink).attr("target", "_blank").text("Get Tickets"));
+
+            eventDiv.append(eImg);
+            eventDiv.append(newP);
+        };
+
         $("#results").append(eventDiv);
+
     }
 
 });
