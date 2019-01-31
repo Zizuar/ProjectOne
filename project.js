@@ -1,6 +1,6 @@
 var weatherKey = "bf7ed81bb01c60d9afa990d276987404";
-var defaultZip = 77042
-var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + defaultZip + ",US&units=imperial&appid=" + weatherKey;
+var defaultCity = "houston"
+var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + defaultCity + ",US&units=imperial&appid=" + weatherKey;
 //var weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + cityZip + ",US&units=imperial&appid=" + weatherKey;
 
 function fetchWeather() {
@@ -49,20 +49,20 @@ var loginDetails = firebase.database();
 $('#submitBtn').on('click', function(){
     var loginName = $('#name').val().trim();
     var loginPassword = $('#password').val().trim();
-    var cityZip = $('#cityZip').val().trim();
+    var userCity = $('#userCity').val().trim();
 
 //This is not the full authentication method, but does
     var databaseDetails = {
         name: loginName,
         password:loginPassword,
-        zipCode: cityZip
+        userCity: userCity
     };
 
     loginDetails.ref().push(databaseDetails);
 
-    if (defaultZip != cityZip) {
+    if (defaultCity != userCity) {
 
-        weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + cityZip + ",US&units=imperial&appid=" + weatherKey;
+        weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + userCity + ",US&units=imperial&appid=" + weatherKey;
     }
     fetchWeather();
   })
