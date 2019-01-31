@@ -46,7 +46,7 @@ firebase.initializeApp(config);
 var loginDetails = firebase.database();
 
 //Note the IDs given to the Button and input fields
-$('#submitBtn').on('click', function(){
+$('#userSubmit').on('click', function(){
     var loginName = $('#name').val().trim();
     var loginPassword = $('#password').val().trim();
     var userCity = $('#userCity').val().trim();
@@ -61,7 +61,6 @@ $('#submitBtn').on('click', function(){
     loginDetails.ref().push(databaseDetails);
 
     if (defaultCity != userCity) {
-
         weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + userCity + ",US&units=imperial&appid=" + weatherKey;
     }
     fetchWeather();
