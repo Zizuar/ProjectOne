@@ -58,6 +58,7 @@ $.ajax({
         $("#tm-results").append(eventDiv);
     };
 
+    // ** Psuedocoded this portion for until all files have been allocated from each person in the group **
     // $("#submit-button").on("click", function(){
     //     event.preventDefault();
 
