@@ -1,3 +1,4 @@
+$(document).ready(function() {
 var weatherKey = "bf7ed81bb01c60d9afa990d276987404";
 var defaultCity = "houston"
 var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + defaultCity + ",US&units=imperial&appid=" + weatherKey;
@@ -67,3 +68,4 @@ $('#userSubmit').on('click', function(){
   })
 
   fetchWeather();
+}
