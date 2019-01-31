@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 // API variables
 var ticketmasterKey = "jjDMAaUGG3IIUAXBGRIisAAaWHqb6GpW";
 var defaultCity = "Houston";
@@ -72,3 +74,5 @@ $.ajax({
     // })
 })}
 getTicket();
+
+});
