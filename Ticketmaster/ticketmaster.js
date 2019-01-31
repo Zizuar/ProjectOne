@@ -1,12 +1,13 @@
 // API variables
 var ticketmasterKey = "jjDMAaUGG3IIUAXBGRIisAAaWHqb6GpW";
 var defaultCity = "Houston";
-var newCity = []; // We will need an input form for the user to put a different city
+var newCity = ""; // We will need an input form for the user to put a different city
 var ticketmasterURL =
 "https://app.ticketmaster.com/discovery/v2/events.json?" + "&city=" + defaultCity + "&sort=date,asc&source=Ticketmaster&localStartDateTime=2019-02-02T00:00:00&countryCode=US&size=4&apikey=" + ticketmasterKey;
 
 
 // AJAX call to get intial information needed
+function getTicket() {
 $.ajax({
     url: ticketmasterURL,
     method: "GET",
@@ -21,7 +22,7 @@ $.ajax({
     console.log(events);
 
     for (var i = 0; i < events.length; i++) {
-        var eventDiv = $("<div id='result-box'>");
+        var eventDiv = $("<div id='tm-result-box'>");
         console.log(events[i]);
 
         var eLink = (events[i].url);
@@ -51,9 +52,23 @@ $.ajax({
             eventDiv.append(eImg);
             eventDiv.append(newP);
         };
+        
+        $("#tm-results").append(eventDiv);
+    };
 
-        $("#results").append(eventDiv);
+    // $("#submit-button").on("click", function(){
+    //     event.preventDefault();
 
-    }
+    //     if (defaultCity != defaultCity) {
 
-});
+    //         newCity = $("input").val().trim();
+    //         ticketmasterURL = "https://app.ticketmaster.com/discovery/v2/events.json?" + "&city=" + newCity + "&sort=date,asc&source=Ticketmaster&localStartDateTime=2019-02-02T00:00:00&countryCode=US&size=4&apikey=" + ticketmasterKey;
+            
+    //         getTicket();
+    //     } else {
+
+    //         getTicket();
+    //     };
+    // })
+})}
+getTicket();
