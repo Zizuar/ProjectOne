@@ -1,7 +1,6 @@
 var weatherKey = "bf7ed81bb01c60d9afa990d276987404";
 var defaultCity = "houston"
-var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + defaultCity + ",US&units=imperial&appid=" + weatherKey;
-//var weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + cityZip + ",US&units=imperial&appid=" + weatherKey;
+var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + defaultCity + "&units=imperial&appid=" + weatherKey;
 
 function fetchWeather() {
     $.ajax({
@@ -30,6 +29,8 @@ function fetchWeather() {
     console.log("Description: " + response.weather[0].description);
 });
 };
+
+fetchWeather();
 
 //Firebase
 var config = {
@@ -61,9 +62,10 @@ $('#userSubmit').on('click', function(){
     loginDetails.ref().push(databaseDetails);
 
     if (defaultCity != userCity) {
-        weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + userCity + ",US&units=imperial&appid=" + weatherKey;
+        weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + userCity + "z&units=imperial&appid=" + weatherKey;
     }
     fetchWeather();
   })
 
   fetchWeather();
+
