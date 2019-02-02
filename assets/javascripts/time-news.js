@@ -36,5 +36,5 @@ $(document).ready(function (){
             
             $("#tnews-results").append(tnewsDiv);
         }
-    })
+    });
  });
