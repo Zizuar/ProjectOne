@@ -33,7 +33,7 @@ $.ajax({
         var eTime = moment(events[i].dates.start.localTime, "HH:mm:ss").format("h:mm A");
         var eVenue = (events[i]._embedded.venues[0].name);
         var eDetail = (events[i].info);
-        var eImg = $("<img src=" + events[i].images[1].url + ">");
+        var eImg = $("<img src=" + events[i].images[1].url + " width=350 height=217>");
 
         
         var p = $("<p>");
@@ -53,10 +53,10 @@ $.ajax({
 
             eventDiv.append(eImg);
             eventDiv.append(newP);
-        };
+        }
         
         $("#tm-results").append(eventDiv);
-    };
+    }
 
     // ** Psuedocoded this portion for until all files have been allocated from each person in the group **
     // $("#submit-button").on("click", function(){
@@ -73,7 +73,7 @@ $.ajax({
     //         getTicket();
     //     };
     // })
-})}
+});}
 getTicket();
 
 });
