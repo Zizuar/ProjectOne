@@ -28,8 +28,9 @@ $(document).ready(function (){
             console.log(new Date(tnPublished));
             
             var tnp = $("<p>");
-            tnp.append("<b>" + tnTitle + "</b><BR><i>Author: " + tnAuthor + "<BR>Source: " + tnSource + "</i><BR>Published: " + tnPublished + "<BR><BR>" + tnDesc + "<BR>");
+            tnp.append("<b><em>" + tnTitle + "</em></b><BR><i>Author: " + tnAuthor + "</i>&nbsp<sup>Published: " + tnPublished + "</sup><BR>&nbsp&nbsp&nbsp" + tnDesc + "<BR>");
             tnp.append($("<a>").attr("href", tnUrl).attr("target", "_blank").text("Full Article..."));
+            tnp.append("<BR><BR>");
             
             tnewsDiv.append(tnp);
             
