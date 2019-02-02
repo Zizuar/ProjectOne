@@ -1,7 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function(){
 var weatherKey = "bf7ed81bb01c60d9afa990d276987404";
-var defaultCity = "houston"
-var weatherURL = "https://api.openweathermap.org/data/2.5/weather?zip=" + defaultCity + ",US&units=imperial&appid=" + weatherKey;
+var defaultCity = "houston";
+var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + defaultCity + "&units=imperial&appid=" + weatherKey;
+// var weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + defaultCity + ",US&units=imperial&appid=" + weatherKey;
 //var weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + cityZip + ",US&units=imperial&appid=" + weatherKey;
 
 function fetchWeather() {
@@ -30,7 +31,7 @@ function fetchWeather() {
     console.log("Temperature (F): " + response.main.temp);
     console.log("Description: " + response.weather[0].description);
 });
-};
+}
 
 //Firebase
 var config = {
@@ -65,7 +66,7 @@ $('#userSubmit').on('click', function(){
         weatherURL = "https://api.openweathermap.org/data/2.5/weather?" + userCity + ",US&units=imperial&appid=" + weatherKey;
     }
     fetchWeather();
-  })
+  });
 
   fetchWeather();
-}
+});
