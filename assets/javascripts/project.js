@@ -24,12 +24,14 @@ function fetchWeather() {
     $(".humidity").text("Humidity: " + response.main.humidity);
     $(".temp").text("Temperature (F) " + response.main.temp);
     $(".description").text("Description:  " + response.weather[0].description);
+    $(".owList").html("<h2>" + "Temperature (F):&nbsp" + response.main.temp + "&nbsp&nbsp Wind Speed:&nbsp " + response.wind.speed + "&nbsp&nbspHumidity:&nbsp " + response.main.humidity + "&nbsp&nbspDescription:&nbsp  " + response.weather[0].description);
     
     // Log the data in the console as well
     console.log("Wind Speed: " + response.wind.speed);
     console.log("Humidity: " + response.main.humidity);
     console.log("Temperature (F): " + response.main.temp);
     console.log("Description: " + response.weather[0].description);
+
 });
 }
 
